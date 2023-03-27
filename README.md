@@ -10,17 +10,17 @@ Users should:
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Database Schema
 
-We would have three databases:
-    - meals.py - Contains meals and associated information, including general ingredient categories (e.g., meat type)
-      - meat base
-      - vegetable base
-      - grain base
-      - fruits?
-      - region
-      - flavor profile
-    - wines.py = Contains wines and associated information, including category information( e.g., red/white, region)
-      - grape varietal
-      - region
-      - year? (probably not)
-    - meal_wine.py = Join table associating meals with wines in a many-to-many relationship
+- We would have three databases:
+  - meals.py - Contains meals and associated information, including general ingredient categories (e.g., meat type)
+    - meat base
+    - vegetable base
+    - grain base
+    - fruits?
+    - region
+    - flavor profile
+  - wines.py = Contains wines and associated information, including category information( e.g., red/white, region)
+    - grape varietal
+    - region
+    - year? (probably not)
+  - meal_wine.py = Join table associating meals with wines in a many-to-many relationship
 
