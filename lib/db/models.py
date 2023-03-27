@@ -20,16 +20,18 @@ class Meal(Base):
     # flavor profile -> str
 
     id = Column(Integer())
-    has_meat_base = Column(Boolean())
+    has_meat = Column(Boolean())
     meat_type = Column(String())
-    has_veg_base = Column(Boolean())
+    veg_type = Column(String())
     region = Column(String())
     flavor_profile = Column(String())
 
 
     def __repr__(self):
         return f'id: {self.id}, ' + \
-            f'name: {self.name}, ' + \
+            f'has meat: {self.has_meat}, ' + \
+            f'meat type: {self.meat_type}', + \
+            f'veg type: {self.veg_type}', + \
             f'region: {self.region}, ' + \
             f'flavor profile: {self.flavor_profile}'
     
