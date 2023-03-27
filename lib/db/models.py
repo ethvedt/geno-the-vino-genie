@@ -62,8 +62,6 @@ class WineMeals(Base):
     meal = relationship('Meal', backref=backref('meal'))
     wine = relationship('Wine', backref=backref('wine'))
 
-    recipe_ingredients = relationship('RecipeIngredient', backref=backref(''))
-
     def __repr__(self):
         return f'wine meal id: {self.id}, ' + \
             f'meal id: {self.meal_id}, ' + \
