@@ -24,3 +24,6 @@ Users should:
     - year? (probably not)
   - meal_wine.py = Join table associating meals with wines in a many-to-many relationship
 
+## Attributions
+
+https://patorjk.com/software/taag/#p=display&h=1&v=1&f=Slant&t=Geno%2C%20the%20Vino%20Genie for the ASCII name
