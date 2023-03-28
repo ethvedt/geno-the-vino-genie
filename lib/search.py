@@ -1,19 +1,7 @@
 from ref_tables import *
 
 def attr_search(attribute, value):
-    if attribute == "meat":
-        table = meat_table
-    elif attribute == "veg":
-        table = veg_table
-    elif attribute == "flavor":
-        table = flavor_table
-    elif attribute == "starch":
-        table = starch_table
-    elif attribute == "spice":
-        table = spice_table
-    elif attribute == "dairy":
-        table = dairy_table
-    return table[value]
+    return dispatch_table[attribute][value]
 
 def meal_search(food):
     coefficients = [0, 0, 0, 0, 0, 0, 0, 0, 0]

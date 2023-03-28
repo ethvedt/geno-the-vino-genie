@@ -58,3 +58,12 @@ dairy_table = {
         "pungent cheese": [1, 2, 0, 1, 0, 1, 1, 1, 2],
         "none": [0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
+
+dispatch_table = {
+            "meat": meat_table,
+            "veg": veg_table,
+            "flavor": flavor_table,
+            "starch": starch_table,
+            "spice": spice_table,
+            "dairy": dairy_table
+}
