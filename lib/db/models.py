@@ -22,10 +22,9 @@ class Meal(Base):
     wine_meal = relationship('WineMeals', backref=backref('meal'))
 
     id = Column(Integer(),  primary_key=True)
-    has_meat = Column(Boolean())
+    name = Column(String())
     meat_type = Column(String())
     veg_type = Column(String())
-    region = Column(String())
     flavor_profile = Column(String())
     starch_profile = Column(String())
     spice_profile = Column(String())
@@ -36,11 +35,11 @@ class Meal(Base):
 
     def __repr__(self):
         return f'id: {self.id}, ' + \
-            f'has meat: {self.has_meat}, ' + \
+            f'name: {self.name}, ' + \
             f'meat type: {self.meat_type}', + \
             f'veg type: {self.veg_type}', + \
-            f'region: {self.region}, ' + \
             f'flavor profile: {self.flavor_profile}' + \
+            f'spice profile: {self.starch_profile}' + \
             f'spice profile: {self.spice_profile}' + \
             f'dairy_profile: {self.dairy_profile}'
     
@@ -51,14 +50,16 @@ class Wine(Base):
     #__tableargs__ = (PrimaryKeyConstraint('id'),)
 
     id = Column(Integer(),  primary_key=True)
-    grape_varietal = Column(String())
+    name = Column(String())
+    wine_type = Column(String())
     region  = Column(String())
 
     wine_meal = relationship('WineMeals', backref=backref('wine'))
 
     def __repr__(self):
         return f'id: {self.id}, ' + \
-            f'grape varietal: {self.grape_varietal}, ' + \
+            f'name: {self.name}, ' + \
+            f'wine type: {self.wine_type}, ' + \
             f'region: {self.region}'
     
 
