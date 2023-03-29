@@ -27,6 +27,11 @@ class Meal(Base):
     veg_type = Column(String())
     region = Column(String())
     flavor_profile = Column(String())
+    starch_profile = Column(String())
+    spice_profile = Column(String())
+    dairy_profile = Column(String())
+   
+
 
 
     def __repr__(self):
@@ -35,7 +40,10 @@ class Meal(Base):
             f'meat type: {self.meat_type}', + \
             f'veg type: {self.veg_type}', + \
             f'region: {self.region}, ' + \
-            f'flavor profile: {self.flavor_profile}'
+            f'flavor profile: {self.flavor_profile}' + \
+            f'spice profile: {self.spice_profile}' + \
+            f'dairy_profile: {self.dairy_profile}'
+    
     
 
 class Wine(Base):
