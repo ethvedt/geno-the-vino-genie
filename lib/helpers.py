@@ -77,11 +77,11 @@ def search_by_name(session):
         for meal in meals:
             table.add_row([value for attribute, value in dir(meal)])
         print(table)
-    meal_choice = input("Is your meal present in the list? Select it by its ID now: ")
-    if type(meal_choice) == int and  meal_choice > 0: 
-        selected_meal = next(meal for meal in meals if meal.id == meal_choice)
-    else:
+    meal_choice = int(input("Is your meal present in the list? Select it by its ID now: "))
+    selected_meal = next((meal for meal in meals if meal.id == meal_choice), None)
+    if not selected_meal:
         raise ValueError("Please select a valid ID.")
+    
 
 
 
