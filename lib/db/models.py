@@ -50,6 +50,7 @@ class Wine(Base):
     #__tableargs__ = (PrimaryKeyConstraint('id'),)
 
     id = Column(Integer(),  primary_key=True)
+    name = Column(String())
     grape_varietal = Column(String())
     region  = Column(String())
 
@@ -57,6 +58,7 @@ class Wine(Base):
 
     def __repr__(self):
         return f'id: {self.id}, ' + \
+            f'name: {self.name}, ' + \
             f'grape varietal: {self.grape_varietal}, ' + \
             f'region: {self.region}'
     
