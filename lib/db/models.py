@@ -8,8 +8,8 @@ engine = create_engine('sqlite:///vino_geno.db', echo=True)
 Base = declarative_base()
 
 class Meal(Base):
-    __tablename__  = 'meal'
-    __tableargs__ = (PrimaryKeyConstraint('id'),)
+    __tablename__  = 'meals'
+    #__tableargs__ = (PrimaryKeyConstraint('id'),)
 
     # has meat base -> boolean
     # meat type -> str
@@ -19,7 +19,9 @@ class Meal(Base):
     # food region -> str
     # flavor profile -> str
 
-    id = Column(Integer())
+    wine_meal = relationship('WineMeals', backref=backref('meal'))
+
+    id = Column(Integer(),  primary_key=True)
     has_meat = Column(Boolean())
     meat_type = Column(String())
     veg_type = Column(String())
@@ -37,14 +39,14 @@ class Meal(Base):
     
 
 class Wine(Base):
-    __tablename__  = 'wine'
-    __tableargs__ = (PrimaryKeyConstraint('id'),)
+    __tablename__  = 'wines'
+    #__tableargs__ = (PrimaryKeyConstraint('id'),)
 
-    id = Column(Integer())
+    id = Column(Integer(),  primary_key=True)
     grape_varietal = Column(String())
     region  = Column(String())
 
-    meals = relationship('Meal', backref=backref('meal') )
+    wine_meal = relationship('WineMeals', backref=backref('wine'))
 
     def __repr__(self):
         return f'id: {self.id}, ' + \
@@ -55,14 +57,11 @@ class Wine(Base):
 
 class WineMeals(Base):
     __tablename__  = 'wine_meal'
-    __tableargs__ = (PrimaryKeyConstraint('id'),)
+    #__tableargs__ = (PrimaryKeyConstraint('id'),)
 
-    id = Column(Integer())
+    id = Column(Integer(),  primary_key=True)
     meal_id = Column(Integer(), ForeignKey('meals.id'))
     wine_id = Column(Integer(), ForeignKey('wines.id'))
-
-    meal = relationship('Meal', backref=backref('meal'))
-    wine = relationship('Wine', backref=backref('wine'))
 
     def __repr__(self):
         return f'wine meal id: {self.id}, ' + \
