@@ -1,6 +1,7 @@
 from ref_tables import *
 from db.models import Base, Meal, Wine
 import os
+from prettytable import PrettyTable
 
 def clear_screen():
     if os.name == 'nt':
@@ -40,15 +41,20 @@ def main_page(session):
         1. Search for your meal by name.
         2. Search for your meal by parameters.
         3. Add a new meal to the database.
+        4. Search the meal database.
+        5. Search the wine database.
     ''')
     first_choice = input('Type the number of your choice: ')
-    if first_choice == 1:
-        search_by_name(session)
-    elif first_choice == 2:
-        search_by_parameters(session)
-    elif first_choice == 3:
-        add_new_meal(session)
-    else:
+    choice_table = {
+        "1": search_by_name,
+        "2": search_by_parameters,
+        "3": add_new_meal,
+        "4": search_meal_database,
+        "5": search_wine_database
+    }
+    try:
+        choice_table[str(first_choice)](session)
+    except:
         raise Exception("Invalid input!")
     
 def search_by_name(session):
