@@ -26,4 +26,4 @@ Users should:
 
 ## Attributions
 
-https://patorjk.com/software/taag/#p=display&h=1&v=1&f=Slant&t=Geno%2C%20the%20Vino%20Genie for the ASCII name
+https://patorjk.com/software/taag/ for the ASCII name
