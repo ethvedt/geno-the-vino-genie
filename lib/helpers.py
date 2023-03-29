@@ -3,6 +3,7 @@ from db.models import Base, Meal, Wine, WineMeals
 import os
 from prettytable import PrettyTable
 from recommenders import recommend_wine
+from add_meal import add_new_meal
 
 def clear_screen():
     if os.name == 'nt':
@@ -88,8 +89,9 @@ def search_by_name(session):
 
 
         
-def add_new_meal(session):
-    pass
+def add_meal(session):
+    add_new_meal(session)
+    
 
 def search_by_parameters(session):
     pass
