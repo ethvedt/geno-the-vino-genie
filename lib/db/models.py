@@ -51,7 +51,7 @@ class Wine(Base):
 
     id = Column(Integer(),  primary_key=True)
     name = Column(String())
-    grape_varietal = Column(String())
+    wine_type = Column(String())
     region  = Column(String())
 
     wine_meal = relationship('WineMeals', backref=backref('wine'))
@@ -59,7 +59,7 @@ class Wine(Base):
     def __repr__(self):
         return f'id: {self.id}, ' + \
             f'name: {self.name}, ' + \
-            f'grape varietal: {self.grape_varietal}, ' + \
+            f'wine type: {self.wine_type}, ' + \
             f'region: {self.region}'
     
 
