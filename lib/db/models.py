@@ -26,9 +26,9 @@ class Meal(Base):
     meat_type = Column(String())
     veg_type = Column(String())
     flavor_profile = Column(String())
-    starch_profile = Column(String())
-    spice_profile = Column(String())
-    dairy_profile = Column(String())
+    starch_type = Column(String())
+    spice_type = Column(String())
+    dairy_type = Column(String())
    
 
 
@@ -39,10 +39,20 @@ class Meal(Base):
             f'meat type: {self.meat_type}', + \
             f'veg type: {self.veg_type}', + \
             f'flavor profile: {self.flavor_profile}' + \
-            f'spice profile: {self.starch_profile}' + \
-            f'spice profile: {self.spice_profile}' + \
-            f'dairy_profile: {self.dairy_profile}'
+            f'spice profile: {self.starch_type}' + \
+            f'spice profile: {self.spice_type}' + \
+            f'dairy_profile: {self.dairy_type}'
     
+    def __dir__(self):
+        return [
+            ('meat', self.meat_type), 
+            ('veg', self.veg_type), 
+            ('flavor', self.flavor_profile), 
+            ('starch', self.starch_type), 
+            ('spice', self.spice_type), 
+            ('dairy', self.dairy_type)
+        ]
+        
     
 
 class Wine(Base):
