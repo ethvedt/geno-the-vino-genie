@@ -45,7 +45,7 @@ def main_page(session):
         1. Search for your meal by name.\n
         2. Search for your meal by parameters.\n
         3. Add a new meal to the database.\n
-        6. Search the wine database.\n
+        4. Search the wine database.\n
     ''')
     choice_table = {
         "1": search_by_name,
