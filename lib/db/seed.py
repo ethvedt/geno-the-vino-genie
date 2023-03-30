@@ -169,6 +169,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 session.query(Meal).delete()
+session.query(Wine).delete()
 session.query(WineMeals).delete()
 
 faker = Faker()
@@ -286,31 +287,22 @@ def create_winemeals():
     for meal in meals:
         selected_wine_types = search.meal_search(meal)
 
-
         selections = []
 
         for wine_type in selected_wine_types:
-            selection = random.choice(session.query(Wine).filter_by(wine_type = wine_type).all())
-            selections.append(selection)
-            print(selection)
+            wines = session.query(Wine).filter_by(wine_type = wine_type).all()
+            for wine in wines:
+                wine_meal = WineMeals(meal_id=meal.id, wine_id=wine.id)
+                session.add(wine_meal)
+                session.commit()
+                selections.append(wine)
             
 
-        #wine_meal = WineMeals()
 
-
+create_wines()
 create_meals()
 create_winemeals()
 
-#create_meals()
-# meal_list = session.query(Meal).all()
-
-#for meal in meal_list[:5]:
-    #print(meal.name, dir(meal))
-    #print()
-
-#create_wines()
-#wines = session.query(Wine).all()
-
-#for wine in wines:
-    #print(f"{wine.name}, {wine.wine_type}, {wine.region}")
-    #print()
+wine_meals = session.query(WineMeals).all()
+for wine_meal in wine_meals[:5]:
+    print(wine_meal)
