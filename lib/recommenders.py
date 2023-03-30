@@ -6,7 +6,7 @@ def recommend_wine(meal, session):
     assoc = session.query(WineMeals).filter(WineMeals.meal_id == meal.id).all()
     results = []
     for entry in assoc:
-        results.append(session.query(Wine).filter(Wine.id == entry.wine_id))
+        results.append(session.query(Wine).filter(Wine.id == entry.wine_id).all())
     if results:
         return results
     else:
