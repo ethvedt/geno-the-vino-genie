@@ -85,5 +85,5 @@ class WineMeals(Base):
     def __repr__(self):
         return f'wine meal id: {self.id}, ' + \
             f'meal id: {self.meal_id}, ' + \
-            f'region: {self.wine_id}'
+            f'wine id: {self.wine_id}'
 
