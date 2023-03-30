@@ -4,6 +4,8 @@ import os
 from prettytable import PrettyTable
 from recommenders import recommend_wine
 import random
+from add_meal import add_new_meal
+
 
 def clear_screen():
     if os.name == 'nt':
@@ -111,8 +113,9 @@ def suggest_wine(wine_list, session, suggested_wines=[]):
 
 
         
-def add_new_meal(session):
-    pass
+def add_meal(session):
+    add_new_meal(session)
+    
 
 def search_by_parameters(session):
     pass
