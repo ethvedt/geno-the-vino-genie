@@ -78,12 +78,12 @@ def suggest_wine(session, wine_list, meal, suggested_wines=[]):
         wine_choice = random.choice(wine_list)
     suggested_wines.append(wine_choice)
     print(f'May I suggest a {wine_choice.name} from {wine_choice.region} for your meal?')
-    ask_again = input("Would you like a different suggestion? y/n: ")
+    ask_again = input("Do you like this suggestion? y/n: ")
     while ask_again not in ['y', 'n']:
         print("Please enter 'y' or 'n':")
         ask_again = input("Do you like this suggestion? y/n: ")
     if ask_again == 'n':
-        return suggest_wine(wine_list, session, suggested_wines)
+        return suggest_wine(session, wine_list, meal, suggested_wines)
     elif ask_again == 'y':
         new_winemeal = WineMeals(meal_id=meal.id, wine_id=wine_choice.id)
         session.add(new_winemeal)
