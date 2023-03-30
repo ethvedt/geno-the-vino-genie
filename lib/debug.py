@@ -23,7 +23,7 @@ for _ in range(5):
 
 
 meal = random.choice(session.query(Meal).all())
-print(dir(meal))
+print(meal.vals())
 
 results = recommend_wine(meal, session)
 

@@ -285,17 +285,16 @@ def create_winemeals():
     import search
 
     for meal in meals:
-        selected_wine_types = search.meal_search(meal)
+        selected_wine_type = search.meal_search(meal)[0]
 
         selections = []
 
-        for wine_type in selected_wine_types:
-            wines = session.query(Wine).filter_by(wine_type = wine_type).all()
-            for wine in wines:
-                wine_meal = WineMeals(meal_id=meal.id, wine_id=wine.id)
-                session.add(wine_meal)
-                session.commit()
-                selections.append(wine)
+        wines = session.query(Wine).filter_by(wine_type = selected_wine_type).all()
+        for wine in wines:
+            wine_meal = WineMeals(meal_id=meal.id, wine_id=wine.id)
+            session.add(wine_meal)
+            session.commit()
+            selections.append(wine)
             
 
 
