@@ -72,6 +72,13 @@ class Wine(Base):
             f'wine type: {self.wine_type}, ' + \
             f'region: {self.region}'
     
+    def __dir__(self):
+        return [
+            ('id', self.id),
+            ('name', self.name),
+            ('wine type', self.wine_type),
+            ('region', self.region)
+        ]
 
 
 class WineMeals(Base):
