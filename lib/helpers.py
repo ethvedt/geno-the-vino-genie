@@ -79,11 +79,11 @@ def suggest_wine(wine_list, session, suggested_wines=[]):
     ask_again = input("Would you like a different suggestion? y/n:")
     while ask_again not in ['y', 'n']:
         print("Please enter 'y' or 'n':")
-        ask_again = input("Would you like a different suggestion? y/n:")
+        ask_again = input("Would you like a different suggestion? y/n: ")
     if ask_again == 'y':
         return suggest_wine(wine_list, session, suggested_wines)
     elif ask_again == 'n':
-        return main_page()
+        return main_page(session)
 
 def search_by_parameters(session):
     clear_screen()
