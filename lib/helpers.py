@@ -3,6 +3,7 @@ from db.models import Base, Meal, Wine, WineMeals
 import os
 from prettytable import PrettyTable
 from recommenders import recommend_wine
+import random
 
 def clear_screen():
     if os.name == 'nt':
@@ -83,8 +84,30 @@ def search_by_name(session):
     if not selected_meal:
         raise ValueError("Please select a valid ID.")
     wine_list = recommend_wine(selected_meal, session)
+    return suggest_wine(wine_list, session)
 
+def suggest_wine(wine_list, session, suggested_wines=[]):
+    clear_screen()
+    if set(wine_list) == set(suggested_wines):
+        print("I'm sorry! We don't have any more wine to suggest to you. Returning to the main menu.")
+        return main_page()
+    wine_choice = random.choice(wine_list)
+    while wine_choice in suggested_wines:
+        wine_choice = random.choice(wine_list)
+    suggested_wines.append(wine_choice)
+    print(f'May I suggest a {wine_choice.name} for your meal?')
+    ask_again = input("Would you like a different suggestion? y/n:")
+    while ask_again != 'y' or 'n':
+        print("Please enter 'y' or 'n':")
+        ask_again = input("Would you like a different suggestion? y/n:")
+    if ask_again == 'y':
+        suggest_wine(wine_list, session, suggested_wines)
+    elif ask_again == 'n':
+        return main_page()
+        
+    
 
+    
 
 
         
