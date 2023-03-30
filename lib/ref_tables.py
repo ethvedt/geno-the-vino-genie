@@ -3,7 +3,7 @@ veg_list = ["allium", "green leafy", "root", "nightshade", "fungi", "nuts or see
 flavor_list = ["sweet", "spicy", "acidic", "rich", "bitter", "salty"]
 starch_list = ["white", "whole wheat", "sweet veg", "potato", "none"]
 spice_list = ["black pepper", "red pepper", "hot and spicy", "herbs", "baking", "other"]
-dairy_list = ["soft cheese or cream", "hard cheese", "pungent cheese", "none"]
+dairy_list = ["soft cheese", "cream", "hard cheese", "pungent cheese", "none"]
 wine_list = ["bold red", "medium red", "light red", "rose", "rich white", "light white", "sparkling", "sweet white", "dessert"]
 meat_table = {
         "red meat": [2, 1, 0, 0, 0, 0, 0, 0, 0],
