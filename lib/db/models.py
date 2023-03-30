@@ -34,17 +34,12 @@ class Meal(Base):
 
 
     def __repr__(self):
-        return f'id: {self.id}, ' + \
-            f'name: {self.name}, ' + \
-            f'meat type: {self.meat_type}', + \
-            f'veg type: {self.veg_type}', + \
-            f'flavor profile: {self.flavor_profile}' + \
-            f'spice profile: {self.starch_type}' + \
-            f'spice profile: {self.spice_type}' + \
-            f'dairy_profile: {self.dairy_type}'
+        return f'id: {self.id}\n' + f'name: {self.name}\n' + f'meat type: {self.meat_type}\n' + f'veg type: {self.veg_type}\n' + f'flavor profile: {self.flavor_profile}\n' + f'starch type: {self.starch_type}\n' + f'spice type: {self.spice_type}\n' + f'dairy type: {self.dairy_type}'
     
-    def __dir__(self):
+    def vals(self):
         return [
+            ('id', self.id),
+            ('name', self.name),
             ('meat', self.meat_type), 
             ('veg', self.veg_type), 
             ('flavor', self.flavor_profile), 
@@ -52,6 +47,7 @@ class Meal(Base):
             ('spice', self.spice_type), 
             ('dairy', self.dairy_type)
         ]
+    
         
     
 
@@ -72,7 +68,7 @@ class Wine(Base):
             f'wine type: {self.wine_type}, ' + \
             f'region: {self.region}'
     
-    def __dir__(self):
+    def vals(self):
         return [
             ('id', self.id),
             ('name', self.name),
