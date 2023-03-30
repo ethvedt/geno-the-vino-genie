@@ -174,7 +174,28 @@ def search_wine_database(session):
     if input == 1:
         search = input("Please write the name of the wine here:")
         results = session.query(Wine).filter_by(Wine.name.contains(search)).all()
-        t = PrettyTable()
-        t.field_names = [attr for attr in Wine.__table__.columns]
-        for wine in results:
-            t.add_row([value for attribute, value in dir(wine)])
+        make_wine_table(results)
+    elif input == 2:
+        search = input('Please write the name of the wine here ("bold red", "medium red", "light red", "rose", "rich white", "light white", "sparkling", "sweet white", "dessert"):')
+        results = session.query(Wine).filter_by(Wine.wine_type.contains(search)).all()
+        make_wine_table(results)
+    elif input == 3:
+        search = input("Type your desired region here:")
+        results = session.query(Wine).filter_by(Wine.region.contains(search)).all()
+        make_wine_table(results)
+    yes_no = input("Would you like to search again? y/n: ")
+    while yes_no not in ['y', 'n']:
+        print("Please type 'y' or 'n'.")
+        yes_no = input("Would you like to search again? y/n: ")
+    if yes_no == 'y':
+        return search_wine_database(session)
+    elif yes_no == 'n':
+        return main_page(session)
+
+    
+def make_wine_table(wine_list):
+    t = PrettyTable()
+    t.field_names = [attr for attr in Wine.__table__.columns]
+    for wine in wine_list:
+        t.add_row([value for attribute, value in dir(wine)])
+    return print(t)
