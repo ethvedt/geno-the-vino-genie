@@ -180,20 +180,20 @@ def search_wine_database(session):
         2. Search by wine type.\n
         3. Search by region.
     ''')
-    select = int(input("Type the number of your selection here: "))
-    while select not in [1, 2, 3]:
+    select = input("Type the number of your selection here: ")
+    while select not in ['1', '2', '3']:
         print("Please select a valid number.")
         select = input("Type the number of your selection here: ")
     if select == 1:
-        search = input("Please write the name of the wine here: ")
+        search = input("Please write the name of the wine here:")
         results = session.query(Wine).filter(Wine.name.contains(search)).all()
         make_wine_table(results)
     elif select == 2:
-        search = input('Please write the name of the wine here ("bold red", "medium red", "light red", "rose", "rich white", "light white", "sparkling", "sweet white", "dessert"): ')
+        search = input('Please write the name of the wine here ("bold red", "medium red", "light red", "rose", "rich white", "light white", "sparkling", "sweet white", "dessert"):')
         results = session.query(Wine).filter(Wine.wine_type.contains(search)).all()
         make_wine_table(results)
     elif select == 3:
-        search = input("Type your desired region here: ")
+        search = input("Type your desired region here:")
         results = session.query(Wine).filter(Wine.region.contains(search)).all()
         make_wine_table(results)
     yes_no = input("Would you like to search again? y/n: ")
