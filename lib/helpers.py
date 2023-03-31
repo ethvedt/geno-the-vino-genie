@@ -6,6 +6,7 @@ from recommenders import recommend_wine
 import random
 from add_meal import add_new_meal
 import time
+from playaudio import playaudio
 
 
 def clear_screen():
@@ -80,11 +81,12 @@ def suggest_wine(session, wine_list, meal, suggested_wines=[]):
     print(f'May I suggest a {wine_choice.name} from {wine_choice.region} for your meal?')
     ask_again = input("Do you like this suggestion? y/n: ")
     while ask_again not in ['y', 'n']:
-        print("Please enter 'y' or 'n':")
+        print("Please enter 'y' or 'n': ")
         ask_again = input("Do you like this suggestion? y/n: ")
     if ask_again == 'n':
         return suggest_wine(session, wine_list, meal, suggested_wines)
     elif ask_again == 'y':
+        playaudio('cartoon_wink_magic_sparkle.mp3')
         new_winemeal = WineMeals(meal_id=meal.id, wine_id=wine_choice.id)
         session.add(new_winemeal)
         session.commit()
@@ -142,7 +144,7 @@ def refine_meal_search(session, meals):
         print("I'm sorry! Your meal is not in the database. Would you like to add it now?")
         yesno = input("y/n: ")
         while yesno not in ['y', 'n']:
-            print("Please enter 'y' or 'n':")
+            print("Please enter 'y' or 'n': ")
             yesno = input("y/n: ")
         if yesno == "y":
             return add_new_meal(session)
@@ -183,15 +185,15 @@ def search_wine_database(session):
         print("Please select a valid number.")
         select = input("Type the number of your selection here: ")
     if select == '1':
-        search = input("Please write the name of the wine here:")
+        search = input("Please write the name of the wine here: ")
         results = session.query(Wine).filter(Wine.name.contains(search)).all()
         make_wine_table(results)
     elif select == '2':
-        search = input('Please write the name of the wine here ("bold red", "medium red", "light red", "rose", "rich white", "light white", "sparkling", "sweet white", "dessert"):')
+        search = input('Please write the name of the wine here ("bold red", "medium red", "light red", "rose", "rich white", "light white", "sparkling", "sweet white", "dessert"): ')
         results = session.query(Wine).filter(Wine.wine_type.contains(search)).all()
         make_wine_table(results)
     elif select == '3':
-        search = input("Type your desired region here:")
+        search = input("Type your desired region here: ")
         results = session.query(Wine).filter(Wine.region.contains(search)).all()
         make_wine_table(results)
     yes_no = input("Would you like to search again? y/n: ")

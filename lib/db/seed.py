@@ -301,7 +301,3 @@ def create_winemeals():
 create_wines()
 create_meals()
 create_winemeals()
-
-wine_meals = session.query(WineMeals).all()
-for wine_meal in wine_meals[:5]:
-    print(wine_meal)

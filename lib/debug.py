@@ -17,10 +17,7 @@ random_wines = []
 for _ in range(5):
     rand_wine = random.choice(session.query(Wine).all())
     random_wines.append(rand_wine)
-    #print(rand_wine)
-
-#suggest_wine(random_wines, session)
-
+   
 
 meal = random.choice(session.query(Meal).all())
 print(meal.vals())
@@ -29,17 +26,3 @@ results = recommend_wine(meal, session)
 
 for result in results:
     print(result)
-
-
-#add_new_meal(session)
-
-#new_meal = Meal(name='roasted chicken', meat_type='poultry', veg_type='allium', flavor_profile='spicy', starch_type='potato', spice_type='black pepper', dairy_type='none')
-
-##session.add(new_meal)
-#session.commit()
-#meals = session.query(Meal).all()
-#print([meal.name for meal in meals])
-
-
-#session.query(Meal).delete()
-#session.commit()
