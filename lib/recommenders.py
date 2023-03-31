@@ -1,5 +1,4 @@
-from db.models import Base, Meal, Wine, WineMeals
-import random
+from db.models import Base, Wine, WineMeals
 from search import meal_search
 
 def recommend_wine(meal, session):
