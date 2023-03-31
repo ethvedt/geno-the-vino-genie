@@ -6,7 +6,8 @@ from recommenders import recommend_wine
 import random
 from add_meal import add_new_meal
 import time
-from playaudio import playaudio
+from playsound import playsound
+
 
 
 def clear_screen():
@@ -86,7 +87,7 @@ def suggest_wine(session, wine_list, meal, suggested_wines=[]):
     if ask_again == 'n':
         return suggest_wine(session, wine_list, meal, suggested_wines)
     elif ask_again == 'y':
-        playaudio('cartoon_wink_magic_sparkle.mp3')
+        playsound('cartoon_wink_magic_sparkle.mp3')
         new_winemeal = WineMeals(meal_id=meal.id, wine_id=wine_choice.id)
         session.add(new_winemeal)
         session.commit()
