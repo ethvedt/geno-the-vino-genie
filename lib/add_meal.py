@@ -7,7 +7,6 @@ import time
 
 def add_new_meal(session):
     from helpers import main_page
-    #clear_screen()
     print("You have decided to add a new meal.")
     name_input = input("Enter the new meal name: ")
 
@@ -44,24 +43,3 @@ def add_new_meal(session):
     print("Your meal has been added to the database. Geno thanks you for expanding his knowledge.")
     time.sleep(5)
     return main_page(session)
-    
-
-
-
-#engine = create_engine('sqlite:///' + 'db/vino_geno.db', echo=True)
-
-#Session = sessionmaker(bind=engine)
-#session = Session()
-
-#add_new_meal(session)
-
-#new_meal = Meal(name='roasted chicken', meat_type='poultry', veg_type='allium', flavor_profile='spicy', starch_type='potato', spice_type='black pepper', dairy_type='none')
-
-##session.add(new_meal)
-#session.commit()
-#meals = session.query(Meal).all()
-#print([meal.name for meal in meals])
-
-
-#session.query(Meal).delete()
-#session.commit()
