@@ -265,7 +265,7 @@ def create_meals():
     from ref_tables import meat_list, veg_list, flavor_list, starch_list, spice_list, dairy_list
 
     count = 1
-    for _ in range(25):
+    for _ in range(100):
         meal_name = 'meal' + str(count)
         meal = Meal(name=meal_name, meat_type=random.choice(meat_list), veg_type=random.choice(veg_list), flavor_profile=random.choice(flavor_list), starch_type=random.choice(starch_list), spice_type=random.choice(spice_list), dairy_type=random.choice(dairy_list))
         count += 1
